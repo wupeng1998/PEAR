@@ -1,5 +1,5 @@
 # PEAR
-To enable a broader comparison, we first downloaded published metabolic network models from the BiGG database and retrieved the corresponding genome sequences for 80 diverse species from NCBI (except Trypanosoma cruzi Dm28c, Synechocystis sp. PCC 6803, Escherichia coli IAI1, Phaeodactylum tricornutum CCAP 1055, Cricetulus griseus, Chlamydomonas reinhardtii strain CC-503). 
+To enable a broader comparison, we first downloaded published metabolic network models from the BiGG database and retrieved the corresponding genome sequences for 79 diverse species from NCBI (except Trypanosoma cruzi Dm28c, Synechocystis sp. PCC 6803, Escherichia coli IAI1, Phaeodactylum tricornutum CCAP 1055, Cricetulus griseus, Chlamydomonas reinhardtii strain CC-503). 
 
 Subsequently, metabolic network models were constructed using CarveMe, ModelSEED, and PEAR tools based on these genome sequences. After construction, the number of genes, reactions, and metabolites in each model was recorded, and the production rates of NADH, ATP, and Biomass for each strain were simulated. 
 ![model_comparison_defaul](https://github.com/user-attachments/assets/496e660b-345b-4d01-a154-df563e75f478)
