@@ -9,5 +9,5 @@ The results demonstrate that PEAR-reconstructed models exhibit the highest consi
 
 
 ![model_comparison_defaul](https://github.com/user-attachments/assets/1eb13be5-d944-4b3d-b04d-29c77d47ad97)
-
+Figure 1. Comparison of GEMs of 79 species reconstructed using PEAR, CarveMe, and ModelSEED across bacteria, archaea, and eukaryotes. GEMs were evaluated by number of gene, reaction, and metabolite, as well as simulated NADH, ATP, and Biomass production rates.
 
