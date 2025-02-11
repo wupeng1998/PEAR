@@ -47,7 +47,7 @@ def load_and_process():
 # ======================
 def create_visualization(df):
     """创建增强的可视化图表"""
-    plt.figure(figsize=(18, 12))
+    plt.figure(figsize=(24, 18))
     metrics = ['nadh', 'atp', 'biomass', 'reactions', 'metabolites', 'genes']
     palette = {'PEAR':'#1f77b4', 'CarveMe':'#ff7f0e', 
               'ModelSEED':'#2ca02c', 'Published':'#d62728'}
@@ -62,18 +62,19 @@ def create_visualization(df):
     
     # 创建分面图
     g = sns.FacetGrid(df_log.melt(id_vars=['model_type'], value_vars=metrics),
-                     col='variable', col_wrap=3, sharey=False, height=4)
+                     col='variable', col_wrap=3, sharey=False, height=4, sharex=False)
     g.map_dataframe(sns.violinplot, x='model_type', y='value', # bw=0.2,
                    palette=palette, inner="quartile",
                    order=['Published', 'PEAR', 'CarveMe', 'ModelSEED'])
-    
+
     # 设置坐标轴标签
     for ax in g.axes.flat:
         metric = ax.get_title().split('=')[-1].strip()
         ax.set_title(metric, fontsize=12)
         ax.set_xlabel('')
+        
 
-        ax.set_ylabel('product rate')  # 其他仍使用对数刻度
+        ax.set_ylabel('product rate (mmol/g DCW/h)')  # 其他仍使用对数刻度
         # 修改 y 轴标签
         if metric == 'reactions':
             ax.set_ylabel('Number of reactions')  # 直接显示数值
@@ -81,9 +82,11 @@ def create_visualization(df):
             ax.set_ylabel('Number of metabolites')  # 直接显示数值
         if metric == 'genes':
             ax.set_ylabel('Number of genes')  # 直接显示数值
-
+        if metric == 'biomass':
+            ax.set_ylabel('growth rate (h-1)')  # 直接显示数值
+            
         ax.tick_params(axis='x', rotation=45)
-    
+
     plt.tight_layout()
     plt.savefig(CHART_PATH, dpi=600, bbox_inches='tight')
     plt.savefig(CHART_svg)
