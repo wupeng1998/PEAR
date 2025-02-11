@@ -12,8 +12,8 @@ import numpy as np
 INPUT_FILE = '/hpcfs/fhome/wupeng/wp/memote/genome_proteins/batch_analysis.xlsx'
 SHEET_NAME = 'BIGG_model'
 OUTPUT_FILE = "bigg模型比较_分析结果.xlsx"
-CHART_PATH = "model_comparison_0.2.png"
-CHART_svg = "model_comparison_0.2.svg"
+CHART_PATH = "model_comparison_defaul.png"
+CHART_svg = "model_comparison_defaul.svg"
 
 # ======================
 # 数据加载与预处理
@@ -63,8 +63,9 @@ def create_visualization(df):
     # 创建分面图
     g = sns.FacetGrid(df_log.melt(id_vars=['model_type'], value_vars=metrics),
                      col='variable', col_wrap=3, sharey=False, height=4)
-    g.map_dataframe(sns.violinplot, x='model_type', y='value',  bw=0.2,
-                   palette=palette, inner="quartile")
+    g.map_dataframe(sns.violinplot, x='model_type', y='value', # bw=0.2,
+                   palette=palette, inner="quartile",
+                   order=['Published', 'PEAR', 'CarveMe', 'ModelSEED'])
     
     # 设置坐标轴标签
     for ax in g.axes.flat:
@@ -84,7 +85,7 @@ def create_visualization(df):
         ax.tick_params(axis='x', rotation=45)
     
     plt.tight_layout()
-    plt.savefig(CHART_PATH, dpi=300, bbox_inches='tight')
+    plt.savefig(CHART_PATH, dpi=600, bbox_inches='tight')
     plt.savefig(CHART_svg)
     plt.show()
     plt.close()
