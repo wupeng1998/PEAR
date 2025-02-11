@@ -7,6 +7,7 @@ Subsequently, metabolic network models were reconstructed using CarveMe, ModelSE
 
 The results demonstrate that PEAR-reconstructed models exhibit the highest consistency with manually curated (published) models across various metrics. Notably, in quantitative calculations, PEAR consistently outperforms other tools, which often generate excessively high predicted values.
 
-![model_comparison_defaul](https://github.com/user-attachments/assets/029edd98-fe7c-4499-a795-d75ef182b660)
+![Uploading model_comparison_defaul.png…]()
+
 
 
